@@ -5,3 +5,12 @@ class Fares{
   Fares({required this.valueKm,required this.valueMin});
 
 }
+
+class FareInfo{
+
+  double traveledKm = 0.0;
+  Duration traveledTime = Duration(seconds: 0);
+
+  FareInfo({required this.traveledKm,required this.traveledTime});
+
+}

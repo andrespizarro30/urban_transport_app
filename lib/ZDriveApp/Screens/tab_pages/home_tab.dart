@@ -9,7 +9,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:urban_transport_app/Utils/GeoPosition.dart';
 import 'package:urban_transport_app/Utils/commonFunctions.dart';
+import 'package:urban_transport_app/Utils/configMaps.dart';
 import 'package:urban_transport_app/main.dart';
+import 'package:urban_transport_app/model/drivers_class.dart';
 import 'package:urban_transport_app/push_notifications/push_notification_system.dart';
 
 import '../../../DataHandler/appData.dart';
@@ -42,6 +44,9 @@ class _HomeTabPageState extends State<HomeTabPage> with AutomaticKeepAliveClient
   String statusText = "Offline";
   Color buttonColor = Colors.grey;
   bool isDriverActive = false;
+
+  int speed = 0;
+  Color? speedColor = Colors.lightGreen;
 
   Future<bool> _onWillPop() async {
     return false;
@@ -111,6 +116,34 @@ class _HomeTabPageState extends State<HomeTabPage> with AutomaticKeepAliveClient
                   Container(
 
                   )
+                ),
+                Positioned(
+                    left: 0,
+                    top: 30,
+                    child: Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2),
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "${speed} km/h",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: speedColor,
+                                  backgroundColor: Colors.white
+                              ),
+                            )
+                          ],
+                        )
+                    )
                 ),
                 Positioned(
                   top: statusText != "Online" ?
@@ -220,7 +253,19 @@ class _HomeTabPageState extends State<HomeTabPage> with AutomaticKeepAliveClient
 
               LatLng latLng = LatLng(this.position!.latitude, this.position!.longitude);
 
-              newGoogleMapController.animateCamera(CameraUpdate.newLatLngZoom(latLng, 14));
+              setState(() {
+                CameraPosition cameraPosition = CameraPosition(target: latLng,zoom: 16);
+                newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+                speed = (position!.speed * (3600/1000)).truncate();
+
+                if(speed<60){
+                  speedColor = Colors.lightGreenAccent;
+                }else{
+                  speedColor = Colors.redAccent;
+                }
+
+              });
         });
 
   }

@@ -57,10 +57,18 @@ class GeocodedWaypoints {
   }
 }
 
+List<Legs> getLegsList(Legs leg){
+
+  List<Legs> legsList = [leg];
+
+  return legsList;
+
+}
+
 class Routes {
   Bounds? bounds;
   String? copyrights;
-  List<Legs>? legs;
+  List<Legs>? legs = getLegsList(Legs(distance: Distance(text: "0",value: 0),duration: Distance(text: "0",value: 0),endAddress: "",endLocation: Northeast(lat: 0.0, lng: 0.0),startAddress: "",startLocation: Northeast(lat: 0.0, lng: 0.0),steps: null));
   Polylines? overviewPolyline;
   String? summary;
   List<Null>? warnings;
@@ -155,11 +163,11 @@ class Northeast {
 
 class Legs {
   Distance? distance;
-  Distance? duration;
-  String? endAddress;
-  Northeast? endLocation;
-  String? startAddress;
-  Northeast? startLocation;
+  Distance? duration = Distance(text: "0",value: 0);
+  String? endAddress = "";
+  Northeast? endLocation = Northeast(lat: 0.0, lng: 0.0);
+  String? startAddress = "";
+  Northeast? startLocation = Northeast(lat: 0.0, lng: 0.0);
   List<Steps>? steps;
 
   Legs(

@@ -2,6 +2,8 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:urban_transport_app/Utils/commonFunctions.dart';
 import 'package:urban_transport_app/Utils/configMaps.dart';
+import 'package:urban_transport_app/ZDriveApp/Screens/trip_screen.dart';
+import 'package:urban_transport_app/assistants/assistantMethods.dart';
 import 'package:urban_transport_app/main.dart';
 
 import '../model/user_ride_request_data.dart';
@@ -18,6 +20,7 @@ class NotificationDialogBox extends StatefulWidget {
 }
 
 class _NotificationDialogBoxState extends State<NotificationDialogBox> {
+
   @override
   Widget build(BuildContext context) {
     
@@ -129,6 +132,23 @@ class _NotificationDialogBoxState extends State<NotificationDialogBox> {
                         audioPlayer.pause();
                         audioPlayer.stop();
                         audioPlayer = AssetsAudioPlayer();
+                        
+                        rideRequestsRef
+                            .child(widget.userRideRequestDetails!.rideRequestId!)
+                            .remove().then((value){
+                              driverRef
+                                  .child(firebaseAuth.currentUser!.uid!)
+                                  .child("newRideStatus")
+                                  .set("idle");
+                        }).then((value){
+                          driverRef
+                              .child(firebaseAuth.currentUser!.uid!)
+                              .child("tripsHistory")
+                              .child(widget.userRideRequestDetails!.rideRequestId!).remove();
+                        }).then((value) => {
+                          displayToastMessages("Solicitud de Viaje Cancelada", context)
+                        });
+                        
                         Navigator.pop(context);
                       },
                       child: Text(
@@ -189,12 +209,20 @@ class _NotificationDialogBoxState extends State<NotificationDialogBox> {
         displayToastMessages("Esta solicitud ya no existe", context );
       }
 
-      if(rideRequestId == widget.userRideRequestDetails!.rideRequesId){
+      if(rideRequestId == widget.userRideRequestDetails!.rideRequestId){
+
+        AssistantMethods.pauseLiveLocationUpdate();
 
         driverRef.child(firebaseAuth.currentUser!.uid).child("newRideStatus").set("aceptado");
 
+        Navigator.push(context, MaterialPageRoute(builder: (c)=>TripScreen(
+            userRideRequestDetails : widget.userRideRequestDetails
+        )));
+
       }else{
+        driverRef.child(firebaseAuth.currentUser!.uid).child("idle");
         displayToastMessages("Esta solicitud ya no existe", context);
+        Navigator.pop(context);
       }
 
     });

@@ -7,6 +7,7 @@ import 'package:urban_transport_app/Screens/registration_screen.dart';
 import 'package:urban_transport_app/Screens/search_screen.dart';
 import 'package:urban_transport_app/Screens/splash_screen.dart';
 import 'package:urban_transport_app/ZDriveApp/Screens/d_main_screen.dart';
+import 'package:urban_transport_app/ZDriveApp/Screens/trip_screen.dart';
 
 Map<String, WidgetBuilder> getRoutes(){
   return <String,WidgetBuilder>{
@@ -17,5 +18,6 @@ Map<String, WidgetBuilder> getRoutes(){
     'splash': (BuildContext context) => MySplashScreen(),
     'd_main': (BuildContext context) => D_MainScreen(),
     'nearest_drivers': (BuildContext context) => NearestActiveDriversScreen(),
+    'trip_screen': (BuildContext context) => TripScreen(),
   };
 }

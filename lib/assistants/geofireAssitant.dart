@@ -16,6 +16,10 @@ class GeoFireAssistance{
 
   }
 
+  static void deleteAllDriversFromList(){
+    activeNearbyAvailableDriversList = [];
+  }
+
   static void deleteOfflineDriverFromList(String driverId){
 
     int index = activeNearbyAvailableDriversList.indexWhere((element) => element.driverId == driverId);

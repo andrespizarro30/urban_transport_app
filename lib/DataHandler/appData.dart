@@ -7,6 +7,7 @@ import 'package:urban_transport_app/model/places_class.dart';
 import 'package:urban_transport_app/model/places_info_class.dart';
 
 import '../model/directions_class.dart';
+import '../model/history_trip_model.dart';
 
 class AppData extends ChangeNotifier{
 
@@ -93,6 +94,50 @@ class AppData extends ChangeNotifier{
 
     this.cancelRequest = false;
 
+  }
+
+
+  FareInfo? fareInfo;
+
+  void setFareInfo(FareInfo fareInfo){
+
+    this.fareInfo = fareInfo;
+
+    notifyListeners();
+
+  }
+
+  void setFareInfo_(){
+
+    this.fareInfo = null;
+
+  }
+
+  List<TripsHistoryModel> listTripHistory = [];
+
+  void updateAllTripsHistory(List<TripsHistoryModel> listTripHistory){
+
+    this.listTripHistory = listTripHistory;
+
+    notifyListeners();
+  }
+
+  List<TripsHistoryModelD> listTripHistoryD = [];
+
+  void updateAllTripsHistoryD(List<TripsHistoryModelD> listTripHistoryD){
+
+    this.listTripHistoryD = listTripHistoryD;
+
+    notifyListeners();
+  }
+
+  String? totalEarning;
+
+  void updateTotalEarning(String earning){
+
+    this.totalEarning = earning;
+
+    notifyListeners();
   }
 
 }

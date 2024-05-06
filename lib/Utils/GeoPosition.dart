@@ -10,7 +10,7 @@ import 'package:urban_transport_app/model/places_class.dart';
 
 import '../DataHandler/appData.dart';
 
-late Position currentPosition;
+Position? globalCurrentPosition;
 var geolocator = Geolocator();
 
 void locatePosition(context) async{
@@ -28,7 +28,7 @@ void locatePositionDriver(context) async{
 }
 
 final LocationSettings locationSettings = LocationSettings(
-  accuracy: LocationAccuracy.high,
+  accuracy: LocationAccuracy.bestForNavigation,
   distanceFilter: 0,
   timeLimit: Duration(milliseconds: 600000)
 );

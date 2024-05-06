@@ -7,6 +7,11 @@ class Drivers {
   String? email;
   String? name;
   String? phone;
+  String? carMake;
+  String? carModel;
+  String? carPlate;
+  String? carColor;
+
 
   Drivers({this.id,this.email,this.name,this.phone});
 
@@ -20,6 +25,10 @@ class Drivers {
       email = valueMap["email"].toString();
       name = valueMap["name"].toString();
       phone = valueMap["phone"].toString();
+      carMake = valueMap["carMake"].toString();
+      carModel = valueMap["carModel"].toString();
+      carPlate = valueMap["carPlate"].toString();
+      carColor = valueMap["carColor"].toString();
 
     }
 

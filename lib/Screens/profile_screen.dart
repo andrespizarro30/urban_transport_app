@@ -1,21 +1,20 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
+import 'package:urban_transport_app/AllWidgets/user_info_design_ui.dart';
 
-import '../../../AllWidgets/user_info_design_ui.dart';
-import '../../../Utils/configMaps.dart';
-import '../../../main.dart';
+import '../Utils/configMaps.dart';
+import '../main.dart';
 
-class ProfileTabPage extends StatefulWidget {
-  const ProfileTabPage({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<ProfileTabPage> createState() => _ProfileTabPageState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileTabPageState extends State<ProfileTabPage> {
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -25,9 +24,9 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
             Text(
               (firebaseAuth.currentUser!.displayName == "Usuario" ? currentUserInfo!.name! : currentDriverInfo!.name!),
               style: TextStyle(
-                  fontSize: 50.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
+                fontSize: 50.0,
+                color: Colors.white,
+                fontWeight: FontWeight.bold
               ),
             ),
             SizedBox(
@@ -56,26 +55,24 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-                Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false);
-              },
-              style: ElevatedButton.styleFrom(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
                   primary: Colors.white54,
                   elevation: 0,
                   minimumSize: Size(200, 50)
-              ),
-              child: Text("Sign out"),
-            ),
+                ),
+                child: Text(
+                  "Cerrar",
+                  style: TextStyle(
+                    color: Colors.black
+                  ),
+                )
+            )
           ],
         ),
       ),
     );
-
   }
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
-
 }

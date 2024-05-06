@@ -186,8 +186,10 @@ void getCurrentOnlineUserInfo() async{
   }else
   if(firebaseUser!.displayName=="Conductor"){
     DatabaseReference reference = driverRef.child(userId);
-    reference.once().then((DatabaseEvent databaseEvent){
-      currentDriverInfo = Drivers.fromSnapshot(databaseEvent.snapshot);
+    await reference.once().then((DatabaseEvent databaseEvent){
+      if(databaseEvent.snapshot != null){
+        currentDriverInfo = Drivers.fromSnapshot(databaseEvent.snapshot);
+      }
     });
   }
 

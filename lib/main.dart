@@ -5,15 +5,25 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:urban_transport_app/DataHandler/appData.dart';
 import 'package:urban_transport_app/Routes/routes.dart';
 import 'package:urban_transport_app/Utils/GeoPosition.dart';
+import 'package:urban_transport_app/background_services/back_services.dart';
 
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Permission.notification.isDenied.then((value){
+    if(value){
+      Permission.notification.request();
+    }
+  });
+
   await Firebase.initializeApp();
+
   runApp(MyApp(
     child: ChangeNotifierProvider(
       create: (context) => AppData(),
@@ -38,6 +48,7 @@ DatabaseReference faresRef = FirebaseDatabase.instance.ref().child("fares");
 DatabaseReference rideRequestsRef = FirebaseDatabase.instance.ref().child("RideRequests");
 FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 StreamSubscription<Position>? streamSubscriptionPosition;
+StreamSubscription<Position>? streamSubscriptionDriverLivePosition;
 
 class MyApp extends StatefulWidget {
 

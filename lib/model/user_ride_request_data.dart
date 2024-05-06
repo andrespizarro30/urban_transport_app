@@ -7,7 +7,7 @@ class UserRideRequestData{
   String? originAddress;
   LatLng? destinLatLng;
   String? destinAddress;
-  String? rideRequesId;
+  String? rideRequestId;
   String? userName;
   String? userPhone;
 
@@ -29,7 +29,7 @@ class UserRideRequestData{
       destinLatLng = LatLng(destinLat, destinLong);
       destinAddress = valueMap["destinationAddress"].toString();
 
-      rideRequesId = dataSnapshot.key.toString();
+      rideRequestId = dataSnapshot.key.toString();
       userName = valueMap["userName"].toString();
       userPhone = valueMap["userPhone"].toString();
 

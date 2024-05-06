@@ -52,6 +52,12 @@ dependencies:
   smooth_star_rating_null_safety: ^1.0.4+2
   firebase_messaging: ^14.6.8
   assets_audio_player: ^3.1.1
+  flutter_background_service: ^5.0.1
+  flutter_background_service_android: ^6.0.1
+  flutter_background_service_ios: ^5.0.0
+  permission_handler: ^11.0.1
+  flutter_local_notifications: ^15.1.2
+  device_info_plus: ^9.0.3
 
 dev_dependencies:
   flutter_test:
