@@ -61,7 +61,7 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
                 Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false);
               },
               style: ElevatedButton.styleFrom(
-                  primary: Colors.white54,
+                  foregroundColor: Colors.white54,
                   elevation: 0,
                   minimumSize: Size(200, 50)
               ),

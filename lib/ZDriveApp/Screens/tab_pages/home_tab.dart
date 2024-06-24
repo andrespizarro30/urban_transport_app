@@ -176,7 +176,7 @@ class _HomeTabPageState extends State<HomeTabPage> with AutomaticKeepAliveClient
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: buttonColor,
+                            foregroundColor: buttonColor,
                             padding: const EdgeInsets.symmetric(horizontal: 18.0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(26)

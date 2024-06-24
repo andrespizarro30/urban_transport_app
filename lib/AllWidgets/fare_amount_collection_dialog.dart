@@ -127,7 +127,7 @@ class _FareAmountCollectionDialogState extends State<FareAmountCollectionDialog>
                     ],
                   ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green
+                  foregroundColor: Colors.green
                 ),
               ),
             ),

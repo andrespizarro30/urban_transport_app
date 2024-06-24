@@ -805,7 +805,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin{
 
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.green
+                                foregroundColor: Colors.green
                               ),
                               icon: Icon(
                                 Icons.phone_android,

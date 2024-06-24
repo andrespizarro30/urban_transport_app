@@ -159,7 +159,7 @@ class _NotificationDialogBoxState extends State<NotificationDialogBox> {
                         ),
                       ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
+                      foregroundColor: Colors.red,
                       maximumSize: Size(200, 40)
                     ),
                   ),
@@ -183,7 +183,7 @@ class _NotificationDialogBoxState extends State<NotificationDialogBox> {
                         ),
                       ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
+                      foregroundColor: Colors.green,
                       maximumSize: Size(200, 40)
                     ),
                   )

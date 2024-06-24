@@ -123,7 +123,7 @@ class _RateDriverScreenState extends State<RateDriverScreen> {
                     displayToastMessages("Gracias por utilizar nuestro servicio", context);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
+                    foregroundColor: Colors.green,
                     padding: EdgeInsets.symmetric(horizontal: 58)
                   ),
                   child: Text(

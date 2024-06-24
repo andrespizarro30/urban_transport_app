@@ -52,7 +52,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
-                  primary: Colors.white54,
+                  foregroundColor: Colors.white54,
                   elevation: 0,
                   minimumSize: Size(100, 50)
               ),

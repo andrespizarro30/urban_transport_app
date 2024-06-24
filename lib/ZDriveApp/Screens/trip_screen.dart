@@ -348,7 +348,7 @@ class _TripScreenState extends State<TripScreen> {
 
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: buttonColor
+                          foregroundColor: buttonColor
                         ),
                         icon: Icon(
                             Icons.directions_car,
