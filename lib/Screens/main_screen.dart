@@ -25,6 +25,7 @@ import 'package:urban_transport_app/assistants/geofireAssitant.dart';
 import 'package:urban_transport_app/model/acrtive_nearby_available_driver.dart';
 import 'package:urban_transport_app/model/directions_class.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../AllWidgets/fare_amount_collection_dialog.dart';
 import '../AllWidgets/progressDialog.dart';
@@ -801,11 +802,15 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin{
                         ),
                         Center(
                           child: ElevatedButton.icon(
-                              onPressed: (){
+                              onPressed: () async{
+
+                                final Uri uri = Uri.parse("tel:${driverInfo["driverPhone"]}");
+
+                                await launchUrl(uri,mode: LaunchMode.externalApplication);
 
                               },
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.green
+                                backgroundColor: Colors.green
                               ),
                               icon: Icon(
                                 Icons.phone_android,
@@ -1121,11 +1126,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin{
         //status = llego
         if(userRideRequestStatus == "llego"){
           driverRideStatus = "El conductor ha llegado";
-        }
-
-        //status = viajando
-        if(userRideRequestStatus == "viajando"){
-          updateTimeToUserDropOfLocation(driverCurrentPositionLatLng);
         }
 
         //status = viajando

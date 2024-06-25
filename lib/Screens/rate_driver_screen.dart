@@ -117,13 +117,14 @@ class _RateDriverScreenState extends State<RateDriverScreen> {
                         double pastRatings = double.parse(snapShot.snapshot.value.toString());
                         double newAvgRating = (pastRatings + countRatingStars)/2;
                         rateDriversRef.set(newAvgRating.toString());
-                        SystemNavigator.pop();
+                        Navigator.pop(context);
+                        //SystemNavigator.pop();
                       }
                     });
                     displayToastMessages("Gracias por utilizar nuestro servicio", context);
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.green,
+                    backgroundColor: Colors.green,
                     padding: EdgeInsets.symmetric(horizontal: 58)
                   ),
                   child: Text(

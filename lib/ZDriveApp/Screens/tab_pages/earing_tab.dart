@@ -84,7 +84,7 @@ class _EaringTabPageState extends State<EaringTabPage> {
               Navigator.push(context, MaterialPageRoute(builder: (c) => TripsHistoryScreen()));
             },
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white54,
+              backgroundColor: Colors.black,
               minimumSize: Size(double.infinity, 70)
             ),
             child: Row(

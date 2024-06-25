@@ -59,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white54,
+                  backgroundColor: Colors.white54,
                   elevation: 0,
                   minimumSize: Size(200, 50)
                 ),

@@ -328,8 +328,8 @@ class _TripScreenState extends State<TripScreen> {
                               buttonColor = Colors.redAccent;
                             });
 
-                            await initializeFareService();
-                            FlutterBackgroundService().invoke("setAsForeground");
+                            //await initializeFareService();
+                            //FlutterBackgroundService().invoke("setAsForeground");
                             //FlutterBackgroundService().invoke("setAsBackground");
                             startFareCounter();
 
@@ -339,7 +339,7 @@ class _TripScreenState extends State<TripScreen> {
                             _timer.cancel();
                             stopwatch.stop();
 
-                            FlutterBackgroundService().invoke("stopService");
+                            //FlutterBackgroundService().invoke("stopService");
 
                             endTripNow();
 
@@ -348,7 +348,7 @@ class _TripScreenState extends State<TripScreen> {
 
                         },
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: buttonColor
+                          backgroundColor: buttonColor
                         ),
                         icon: Icon(
                             Icons.directions_car,

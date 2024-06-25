@@ -1,8 +1,12 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:urban_transport_app/ZDriveApp/Screens/tab_pages/earing_tab.dart';
 import 'package:urban_transport_app/ZDriveApp/Screens/tab_pages/home_tab.dart';
 import 'package:urban_transport_app/ZDriveApp/Screens/tab_pages/profile_tab.dart';
 import 'package:urban_transport_app/ZDriveApp/Screens/tab_pages/rating_tab.dart';
+
+import '../../Utils/configMaps.dart';
+import '../../main.dart';
 
 class D_MainScreen extends StatefulWidget {
   const D_MainScreen({super.key});
@@ -29,6 +33,7 @@ class _D_MainScreenState extends State<D_MainScreen> with SingleTickerProviderSt
     super.initState();
 
     tabController = TabController(length: 4,vsync: this);
+
   }
 
   @override
@@ -74,4 +79,5 @@ class _D_MainScreenState extends State<D_MainScreen> with SingleTickerProviderSt
       ),
     );
   }
+
 }

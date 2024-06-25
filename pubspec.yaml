@@ -58,6 +58,7 @@ dependencies:
   permission_handler: ^11.0.1
   flutter_local_notifications: ^15.1.2
   device_info_plus: ^9.0.3
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:
@@ -130,4 +131,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custo

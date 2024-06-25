@@ -189,10 +189,22 @@ void getCurrentOnlineUserInfo() async{
     await reference.once().then((DatabaseEvent databaseEvent){
       if(databaseEvent.snapshot != null){
         currentDriverInfo = Drivers.fromSnapshot(databaseEvent.snapshot);
+        getDriversRating();
       }
     });
   }
 
+}
 
+void getDriversRating(){
 
+  DatabaseReference rateDriversRef = driverRef.child(currentDriverInfo!.id!).child("ratings");
+
+  rateDriversRef.once().then((snapShot){
+    if(snapShot.snapshot.value == null){
+      countRatingStars = 0;
+    }else{
+      countRatingStars = double.parse(snapShot.snapshot.value.toString());
+    }
+  });
 }
