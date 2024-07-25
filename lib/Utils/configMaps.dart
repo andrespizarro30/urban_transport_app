@@ -13,7 +13,7 @@ String androidMapKey = "AIzaSyAkBBvSMGpO4EoLTNjkLr7V-HzvdRlTY14";
 String iosMapKey = "AIzaSyB3gCARPJjOJlVD-HWqHYxUpwC2T-ZnxYg";
 String geoCodingKey = "AIzaSyCBDQ2l_f4ksZaSzkCqhNsOhdHfbU5lKqA";
 
-String cloudMessagingServerToken = "key=AAAAqN62Gf8:APA91bHYDyBsibIplRlfQXNUZjz_6V2NulrBPXN7z1YE5VjbOkrPfp_PI_TEuJPvx_Bw-pz-Gnsm8khEGTTm9_viT5FoOFPMYwinfqLd-4yUZIPNqBNbI4xiLY26idxSTp9Jb3f2z5il";
+String cloudMessagingServerToken = "";
 
 String messagingURL = "https://fcm.googleapis.com/fcm/send";
 
