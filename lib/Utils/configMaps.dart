@@ -9,9 +9,9 @@ import '../model/directions_class.dart';
 import '../model/fares_class.dart';
 import '../model/user_ride_request_data.dart';
 
-String androidMapKey = "AIzaSyAkBBvSMGpO4EoLTNjkLr7V-HzvdRlTY14";
-String iosMapKey = "AIzaSyB3gCARPJjOJlVD-HWqHYxUpwC2T-ZnxYg";
-String geoCodingKey = "AIzaSyCBDQ2l_f4ksZaSzkCqhNsOhdHfbU5lKqA";
+String androidMapKey = "";
+String iosMapKey = "";
+String geoCodingKey = "";
 
 String cloudMessagingServerToken = "";
 
